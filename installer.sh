@@ -8,7 +8,7 @@ if [ "$(uname -m)" == "aarch64" ]; then
 # downloads a pre compiled version i made myself
     unzip StepMania-for-batocera.zip
     mv StepMania-for-batocera-main/* .
-    rm StepMaina-for-batocera.zip
+    rm StepMania-for-batocera.zip
     rm -R StepMania-for-batocera-main/
 # code above sets up the file structure for ti to work
     echo "Installed successfully! , stepmaina should now be available in the Ports section in batocera!" 
