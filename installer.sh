@@ -12,7 +12,7 @@ if [ "$(uname -m)" == "aarch64" ]; then
     rm -R StepMania-for-batocera-main/
 # code above sets up the file structure for ti to work
     echo "Installed successfully! , stepmaina should now be available in the Ports section in batocera!" 
-    rm -- "installer.sh"
+    rm  "installer.sh"
 
 else
     echo "This version of StepMaina only works with a Raspberry pi 5 or a Raspberry Pi 4"
