@@ -7,3 +7,4 @@
 - the default user is `root` and the password is set to `linux` by default
 -then, run `curl -sSL https://github.com/YourLocalTechGuy/StepMania-for-batocera/raw/main/installer.sh | bash` to automatically install it
 
+note: this port can technically run on any arm64 device that uses the arm64v8-a ABI unless you use your own libaries 
