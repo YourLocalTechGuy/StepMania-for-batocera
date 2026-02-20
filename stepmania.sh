@@ -1,13 +1,16 @@
 #!/bin/bash
 
-# Define the directory where StepMania libs are stored
+# Define directories
 STEP_LIB_DIR="/userdata/roms/ports/stepmania"
+PREFS="/userdata/system/.stepmania-5.1/Save/Preferences.ini"
 
-# Create symlinks for the required libraries
-ln -sf "$STEP_LIB_DIR/libjpeg.so.62.3.0" "/lib/libjpeg.so.62"
-ln -sf "$STEP_LIB_DIR/libpcre.so.3.13.3" "/lib/libpcre.so.3"
-ln -sf "$STEP_LIB_DIR/libtommath.so.1.2.0" "/lib/libtommath.so.1"
-ln -sf "$STEP_LIB_DIR/libjack.so.0.1.0" "/lib/libjack.so.0"
+export LD_LIBRARY_PATH=$STEP_LIB_DIR:$LD_LIBRARY_PATH
 
-# Change to the StepMania directory and run the executable
+# Patch Preferences.ini
+if [ -f "$PREFS" ]; then
+    sed -i 's/^SoundDevice=.*/SoundDevice=plughw:1.0/' "$PREFS"
+    sed -i 's/^SoundDrivers=.*/SoundDrivers=pulse/' "$PREFS"
+fi
+
+# Launch StepMania
 cd "$STEP_LIB_DIR" && ./stepmania
